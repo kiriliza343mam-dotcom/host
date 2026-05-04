@@ -1,0 +1,371 @@
+/* 🔥 ГЛАВНЫЙ ФИКС */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* APP */
+.app {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1f3a, #0b0e1a);
+  color: white;
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, rgba(120, 80, 255, 0.35), rgba(0,0,0,0.4));
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.heroTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.heroText {
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* CARDS */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card.primary {
+  background: linear-gradient(135deg, #6a5cff, #8f7bff);
+}
+
+.card.secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* BACK */
+.backBtn {
+  color: #9b8cff;
+  padding: 12px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= */
+/* FORM */
+/* ================= */
+
+.formPage {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1f3a, #0b0e1a);
+  padding: 16px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.formTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.formCard {
+  background: linear-gradient(135deg, rgba(120, 80, 255, 0.15), rgba(0,0,0,0.4));
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+/* INPUT */
+.inputBlock {
+  margin-bottom: 18px;
+}
+
+.label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 11px 12px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  display: block;
+}
+
+input, textarea {
+  min-width: 0;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #7c7cff;
+  box-shadow: 0 0 0 2px rgba(124,124,255,0.2);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* BUTTON */
+.submitBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #6a5cff, #8f7bff);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  transform: scale(1.02);
+}
+
+/* ================= */
+/* 🔥 ADMIN CRM */
+/* ================= */
+
+/* TOP */
+.adminTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.searchBar {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255,255,255,0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: white;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.statCard {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.statNumber {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.statLabel {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filterBtn.active {
+  background: linear-gradient(135deg, #6a5cff, #8f7bff);
+}
+
+/* TABLE */
+.table {
+  background: rgba(255,255,255,0.03);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* GRID */
+.row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 2fr 1fr 1.3fr;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+}
+
+.row.header {
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+/* 🔥 ТЕКСТ */
+.cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* КЛИК */
+.link {
+  cursor: pointer;
+  color: #9b8cff;
+}
+
+/* STATUS */
+.status {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.new {
+  color: #4cff88;
+}
+
+.status.in_progress {
+  color: #ffd54c;
+}
+
+.status.done {
+  color: #4cb3ff;
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtn {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  transition: 0.2s;
+}
+
+.actionBtn:hover {
+  transform: scale(1.1);
+}
+
+.actionBtn.green {
+  background: rgba(76,255,136,0.2);
+}
+
+.actionBtn.yellow {
+  background: rgba(255,213,76,0.2);
+}
+
+.actionBtn.blue {
+  background: rgba(76,179,255,0.2);
+}
+
+.actionBtn.red {
+  background: rgba(255,80,80,0.25);
+}
+
+/* ================= */
+/* 🔥 MODAL */
+/* ================= */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: #11142a;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.modalTitle {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.modalProblem {
+  margin-top: 8px;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word; /* 🔥 фикс длинного текста */
+}
