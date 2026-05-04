@@ -14,7 +14,7 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('all');
 
-  const [selectedRequest, setSelectedRequest] = useState(null); // 🔥 НОВОЕ
+  const [selectedRequest, setSelectedRequest] = useState(null);
 
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -226,9 +226,8 @@ export default function App() {
             <div className={`filterBtn ${filter === 'done' && 'active'}`} onClick={() => setFilter('done')}>Готово</div>
           </div>
 
-          {/* TABLE */}
-          <div className="table">
-
+          {/* DESKTOP TABLE */}
+          <div className="table desktopOnly">
             <div className="row header">
               <div>Имя</div>
               <div>Контакт</div>
@@ -238,21 +237,17 @@ export default function App() {
             </div>
 
             {filteredRequests.map((req) => (
-              <div key={req.id} className="row">
+              <div key={req.id} className="row" onClick={() => setSelectedRequest(req)}>
 
-                <div className="cell">{req.name}</div>
-                <div className="cell">{req.contact}</div>
+                <div>{req.name}</div>
+                <div>{req.contact}</div>
+                <div>{req.problem}</div>
 
-                {/* 🔥 КЛИК ДЛЯ ПРОСМОТРА */}
-                <div className="cell link" onClick={() => setSelectedRequest(req)}>
-                  {req.problem}
-                </div>
-
-                <div className={`cell status ${req.status}`}>
+                <div className={`status ${req.status}`}>
                   {getStatusText(req.status)}
                 </div>
 
-                <div className="cell actions">
+                <div className="actions" onClick={(e) => e.stopPropagation()}>
                   <button className="actionBtn green" onClick={() => updateStatus(req.id, 'new')}>●</button>
                   <button className="actionBtn yellow" onClick={() => updateStatus(req.id, 'in_progress')}>●</button>
                   <button className="actionBtn blue" onClick={() => updateStatus(req.id, 'done')}>●</button>
@@ -261,10 +256,35 @@ export default function App() {
 
               </div>
             ))}
-
           </div>
 
-          {/* 🔥 MODAL */}
+          {/* MOBILE CARDS */}
+          <div className="cards mobileOnly">
+            {filteredRequests.map((req) => (
+              <div key={req.id} className="requestCard" onClick={() => setSelectedRequest(req)}>
+
+                <div className="cardTop">
+                  <div className="cardName">{req.name}</div>
+                  <div className={`status ${req.status}`}>
+                    {getStatusText(req.status)}
+                  </div>
+                </div>
+
+                <div className="cardText">📞 {req.contact}</div>
+                <div className="cardText">💻 {req.problem}</div>
+
+                <div className="actions" onClick={(e) => e.stopPropagation()}>
+                  <button className="actionBtn green" onClick={() => updateStatus(req.id, 'new')}>●</button>
+                  <button className="actionBtn yellow" onClick={() => updateStatus(req.id, 'in_progress')}>●</button>
+                  <button className="actionBtn blue" onClick={() => updateStatus(req.id, 'done')}>●</button>
+                  <button className="actionBtn red" onClick={() => deleteRequest(req.id)}>✖</button>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+          {/* MODAL */}
           {selectedRequest && (
             <div className="modalOverlay" onClick={() => setSelectedRequest(null)}>
               <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -273,8 +293,11 @@ export default function App() {
 
                 <div><b>Имя:</b> {selectedRequest.name}</div>
                 <div><b>Контакт:</b> {selectedRequest.contact}</div>
-                <div><b>Проблема:</b></div>
-                <div className="modalProblem">{selectedRequest.problem}</div>
+
+                <div style={{ marginTop: 10 }}><b>Проблема:</b></div>
+                <div className="modalProblem">
+                  {selectedRequest.problem}
+                </div>
 
                 <button className="submitBtn" onClick={() => setSelectedRequest(null)}>
                   Закрыть

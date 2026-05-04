@@ -174,7 +174,6 @@ input, textarea {
 /* 🔥 ADMIN CRM */
 /* ================= */
 
-/* TOP */
 .adminTop {
   display: flex;
   align-items: center;
@@ -261,17 +260,11 @@ input, textarea {
   font-size: 12px;
 }
 
-/* 🔥 ТЕКСТ */
+/* TEXT */
 .cell {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-/* КЛИК */
-.link {
-  cursor: pointer;
-  color: #9b8cff;
 }
 
 /* STATUS */
@@ -280,17 +273,9 @@ input, textarea {
   font-weight: 600;
 }
 
-.status.new {
-  color: #4cff88;
-}
-
-.status.in_progress {
-  color: #ffd54c;
-}
-
-.status.done {
-  color: #4cb3ff;
-}
+.status.new { color: #4cff88; }
+.status.in_progress { color: #ffd54c; }
+.status.done { color: #4cb3ff; }
 
 /* ACTIONS */
 .actions {
@@ -306,27 +291,52 @@ input, textarea {
   font-size: 12px;
   background: rgba(255,255,255,0.08);
   color: white;
-  transition: 0.2s;
 }
 
-.actionBtn:hover {
-  transform: scale(1.1);
+.actionBtn.green { background: rgba(76,255,136,0.2); }
+.actionBtn.yellow { background: rgba(255,213,76,0.2); }
+.actionBtn.blue { background: rgba(76,179,255,0.2); }
+.actionBtn.red { background: rgba(255,80,80,0.25); }
+
+/* ================= */
+/* 🔥 MOBILE FIX */
+/* ================= */
+
+.mobileOnly { display: none; }
+
+/* карточки */
+.requestCard {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
 }
 
-.actionBtn.green {
-  background: rgba(76,255,136,0.2);
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
 
-.actionBtn.yellow {
-  background: rgba(255,213,76,0.2);
+.cardName {
+  font-weight: 600;
 }
 
-.actionBtn.blue {
-  background: rgba(76,179,255,0.2);
+.cardText {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 4px;
 }
 
-.actionBtn.red {
-  background: rgba(255,80,80,0.25);
+/* 📱 только телефон */
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
 }
 
 /* ================= */
@@ -353,8 +363,6 @@ input, textarea {
   background: #11142a;
   border-radius: 20px;
   padding: 20px;
-  color: white;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
 .modalTitle {
@@ -367,5 +375,5 @@ input, textarea {
   margin-top: 8px;
   line-height: 1.4;
   white-space: normal;
-  word-break: break-word; /* 🔥 фикс длинного текста */
+  word-break: break-word;
 }
